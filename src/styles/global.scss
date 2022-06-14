@@ -4,9 +4,20 @@
 
 @import '_base.scss';
 
+@font-face {
+    font-family: vazir;
+    src: url('../assets/fonts/Vazir-FD.woff2');
+    font-weight: normal;
+}
+@font-face {
+    font-family: vazir;
+    src: url('../assets/fonts/Vazir-Bold-FD.woff2');
+    font-weight: bold;
+}
 
 body{
-    color: $blue;
+    font-family: vazir,sans-serif;
+    background-image: url('../assets/images/feathers.png');
 }
 
 .container {
