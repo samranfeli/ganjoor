@@ -552,7 +552,7 @@ const PoetsList = () => {
 
   return (
     <section className="py-5">
-      <div className="container">
+      <div className="container px-4 mx-auto">
         <div className="flex flex-wrap justify-center">
           {dummyPoets.map((item) => (
             <PoetItem key={item.name} item={item} />
