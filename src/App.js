@@ -1,6 +1,4 @@
-import {
-  BrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter,Switch,Route} from "react-router-dom";
 
 import Header from "./components/Layout/Header";
 import Home from "./pages/Home";
@@ -11,7 +9,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
       <Header />
-      <Home />
+      <Switch>
+        <Route path="/:poetUrl" exact>
+          <h1>something else</h1>
+        </Route>
+        <Route path="/" axact>
+          <Home />
+        </Route>
+      </Switch>
       </div>
     </BrowserRouter>
   );
