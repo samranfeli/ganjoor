@@ -6,7 +6,9 @@ import './styles/global.scss';
 function App() {
   return (
     <BrowserRouter>
-      <Layout />
+      <div className="text-base 2xl:text-lg">
+        <Layout />
+      </div>
     </BrowserRouter>
   );
 }
