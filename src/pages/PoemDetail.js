@@ -1,49 +1,40 @@
-import { useState, useEffect ,useCallback} from "react";
+import React,{ useState, useEffect} from "react";
 import { Link,useLocation } from "react-router-dom";
-import parse from 'html-react-parser';
+import parse,{domToReact} from 'html-react-parser';
 
-import axios from "../ganjoorAxios";
+import useHttp from "../hooks/use-http";
 import { Urls } from "../urls";
 
 const PoemDetail = ()=>{
     const location = useLocation();
     const [poemDetail,setPoemDetail]= useState(undefined);
-    const [loading,setLoading] = useState(true);
-    
-    const fetchPoetsData = useCallback( async() => {
-      try{
-        const response = await axios.get(`${Urls.getPageByUrl}?url=${location.pathname}`);
-        setLoading(false);
-        setPoemDetail(response.data);
-      }catch (err){
-        setLoading(false);
-      }
-    },[location.pathname]);
+    const {loading,errorMessage,sendRequest:fetchPoetsData} = useHttp()
     
     useEffect(()=>{
-      fetchPoetsData();
-    },[fetchPoetsData]);
+      fetchPoetsData({url:`${Urls.getPageByUrl}?url=${location.pathname}`},setPoemDetail);
+    },[fetchPoetsData,location.pathname]);
   
-
-    useEffect(()=>{
-      console.log("LOADED")
-    },[]);
-
+    const parseOptions = {
+      replace: ({ attribs, children }) => {
+        if (!attribs) {
+          return;
+        }
+        if (attribs.href && attribs.href[0] !== "#") {
+          return (<Link to={attribs.href}>{domToReact(children, parseOptions)}</Link>)
+        }
+      }
+    };
+    
+    if (errorMessage){
+      return <h2>{errorMessage}</h2>
+    }
     
     return <div className="container mx-auto px-4">
          {loading ? (
           <h1>LOADING...</h1>
-        ) : location.pathname ? (
-            <div>
-                <div>
-                    {poemDetail?.poetOrCat?.cat.children.map(item=><Link className="block" key={item.fullUrl} to={item.fullUrl}>{item.title}</Link>)}
-                </div>
-                {parse(poemDetail?.htmlText)}
-               {/* <h2>{poetDetail.poet.name}</h2>
-                <div>
-                    {poetDetail.poet.description}
-                </div>
-                <hr/> */}
+        ) : poemDetail ? (
+            <div className="poem-details-html">
+              {parse(poemDetail?.htmlText,parseOptions)}
             </div>
         ) : (
           <h2>there is no result</h2>

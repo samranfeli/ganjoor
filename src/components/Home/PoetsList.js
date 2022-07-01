@@ -1,26 +1,23 @@
 import {useState,useEffect} from 'react';
 
-import axios from '../../ganjoorAxios';
 import { Urls } from '../../urls';
 import PoetItem from "./PoetItem";
+import useHttp from '../../hooks/use-http';
 
 const PoetsList = () => {
   const [poets,setPoets]= useState([]);
-  const [loading,setLoading] = useState(true);
+  const {loading, errorMessage,sendRequest} = useHttp();
 
   useEffect(()=>{
-    fetchPoetsData();
-  },[]);
-
-  const fetchPoetsData = async() => {
-    try{
-      const response = await axios.get(Urls.getAllPoets);
-      setLoading(false);
-      setPoets(response.data);
-    }catch (err){
-      setLoading(false);
-      debugger;
+    sendRequest({
+      url:Urls.getAllPoets
     }
+    ,
+    setPoets);
+  },[sendRequest]);
+  
+  if (errorMessage){
+    return <h2>{errorMessage}</h2>
   }
 
   return (
@@ -28,7 +25,7 @@ const PoetsList = () => {
       <div className="container px-4 mx-auto">
         {loading ? (
           <h1>LOADING...</h1>
-        ) : poets.length > 0 ? (
+        ) : poets?.length > 0 ? (
           <div className="flex flex-wrap justify-center">
             {poets.map((item) => (
               <PoetItem key={item.name} item={item} />

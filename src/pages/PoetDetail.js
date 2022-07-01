@@ -1,30 +1,23 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import axios from "../ganjoorAxios";
+import useHttp from "../hooks/use-http";
 import { Urls } from "../urls";
 
 const PoetDetail = () => {
   const params = useParams();
   const [poetDetail, setPoetDetail] = useState(undefined);
-  const [loading, setLoading] = useState(true);
 
-  const fetchPoetsData = useCallback( async () => {
-    try {
-      const response = await axios.get(
-        `${Urls.getPoetDetails}?url=/${params.poetUrl}`
-      );
-      setLoading(false);
-      setPoetDetail(response.data);
-    } catch (err) {
-      setLoading(false);
-    }
-  },[params.poetUrl]);
+  const {errorMessage,sendRequest:fetchPoetsData,loading} = useHttp(); 
 
   useEffect(() => {
-    fetchPoetsData();
-  }, [fetchPoetsData]);
+    fetchPoetsData({url:`${Urls.getPoetDetails}?url=/${params.poetUrl}`},setPoetDetail);
+  }, [fetchPoetsData,params.poetUrl]);
 
+  if (errorMessage){
+    return <h2>{errorMessage}</h2>
+  }
+  
   return (
     <div className="container mx-auto px-4">
       {loading ? (
