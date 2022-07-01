@@ -19,3 +19,57 @@ body{
     font-family: vazir,sans-serif;
     background-image: url('../assets/images/feathers.png');
 }
+
+.poem-details-html {
+    padding: 15px 0;
+    &>a[href^='#'] {
+        border: 2px solid;
+        min-width: 40px;
+        color: #ff9800;
+        display: inline-block;
+        margin: 15px 0 15px 15px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 36px;
+        padding: 0 5px;
+        font-size: 16px;
+    }
+    .notice {
+        background: #a2d5d09e;
+        padding: 20px;
+        border-radius: 10px;
+        color: #009688;
+        margin: 10px 0 25px;
+        backdrop-filter: blur(1px);
+        font-size: 16px;
+        p{
+            text-align: justify;
+            &:not(:last-child){
+                margin-bottom: 10px;
+            }
+        }
+    }
+    #findpoet {
+        display: none;
+    }
+    .part-title-block {
+        margin: 30px 0 15px;
+        background: #ff98002e;
+        padding: 5px 15px;
+        line-height: 40px;
+        color: #e78a00;
+        border-radius: 10px;
+        font-weight: 500;
+        font-size: 24px;
+    }
+    .poem-excerpt {
+        margin-bottom: 10px;
+        font-weight: normal;
+        a{
+            color: rgb(33, 150, 243);
+            margin-left: 10px;
+            font-weight: 500;
+        }
+    }
+}
