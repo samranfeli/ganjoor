@@ -1,25 +1,6 @@
 
-interface Poet {
-birthPlace: string;
-birthPlaceLatitude: number;
-birthPlaceLongitude: number;
-birthYearInLHijri:number;
-deathPlace:string;
-deathPlaceLatitude: number;
-deathPlaceLongitude: number;
-deathYearInLHijri: number;
-description?:string;
-fullUrl:string;
-id:number;
-imageUrl:string;
-name:string;
-nickname:string;
-pinOrder:number;
-published:boolean;
-rootCatId:number;
-validBirthDate:boolean;
-validDeathDate:boolean;
-}
+import { Poet } from "../Types";
+import PoetListItem from '../components/Poet/PoetListItem';
 
 type Props = {
     poets: Poet[];
@@ -28,9 +9,9 @@ type Props = {
 const Home:React.FC<Props> = props => {
 
   return (
-    <main>
-      {props.poets?.map(x => <div key={x.id}>{x.name}<br/></div>)}
-    </main>
+      <div className="flex flex-wrap justify-center">
+        {props.poets?.map(poet => <PoetListItem poet={poet} key={poet.id}/>)}
+      </div>
   )
 }
 
