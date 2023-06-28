@@ -1,3 +1,5 @@
+import Header from "./Header"
+
 export default function RootLayout({
   children,
 }: {
@@ -5,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <header>header</header>
+      <Header />
       <main>
         <div className='mx-auto max-w-6xl'>
           {children}

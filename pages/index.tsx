@@ -9,7 +9,7 @@ type Props = {
 const Home:React.FC<Props> = props => {
 
   return (
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center py-6">
         {props.poets?.map(poet => <PoetListItem poet={poet} key={poet.id}/>)}
       </div>
   )
