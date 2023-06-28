@@ -1,16 +1,24 @@
 import { Input, Button, Form } from "antd";
 import { SearchOutlined } from '@ant-design/icons';
+import { useRouter } from 'next/router';
 
 type Props = {
     placeholder?: string;
 }
 
 const Search: React.FC<Props> = props => {
+
+    const router = useRouter();
+
+    const onSubmit = (values:{text:string}) => {
+        if(!values.text) return;
+        router.push(`/search?s=${values.text}`)
+    }
+
     return (
         <Form
             name="basic"
-            //onFinish={onFinish}
-            //onFinishFailed={onFinishFailed}
+            onFinish={onSubmit}
             className="relative"
             autoComplete="off"
         >
