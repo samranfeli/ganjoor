@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "vazir";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: local("vazir"),
+    url("../assets/fonts/Vazir-Light-FD.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+@font-face {
+  font-family: "vazir";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: local("vazir"), url("../assets/fonts/Vazir-FD.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+@font-face {
+  font-family: "vazir";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local("vazir"),
+    url("../assets/fonts/Vazir-Medium-FD.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+@font-face {
+  font-family: "vazir";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: local("vazir"), url("../assets/fonts/Vazir-Bold-FD.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -14,4 +45,8 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+body{
+  font-family: vazir , sans-serif;
 }
