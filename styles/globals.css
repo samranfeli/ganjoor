@@ -49,6 +49,7 @@
 
 body{
   font-family: vazir , sans-serif;
+  background-image: url('../assets/images/bg.png');
 }
 
 .main-content {

@@ -17,7 +17,7 @@ const PoetListItem:React.FC<Props> = props => {
                 height={80} 
             />
             
-            <h3 className={`mt-2 group-hover:text-orange-400 transition-all ${poet.id < 10 ? "font-bold text-md":"text-sm"}`}>{poet.name}</h3>
+            <h3 className={`mt-2 group-hover:text-orange-400 transition-all leading-5 ${poet.id < 10 ? "font-bold text-md":"text-sm"}`}>{poet.name}</h3>
 
         </Link>
     )
