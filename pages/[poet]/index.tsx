@@ -43,6 +43,7 @@ const Poet:React.FC<Props> = (props) => {
             </div>
         )
     }
+
     return(
         <div>
             <div className="py-3 sm:py-6">
