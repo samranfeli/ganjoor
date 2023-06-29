@@ -8,7 +8,7 @@ class MyDocument extends Document {
                 <Head>
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
-                <body dir="rtl">
+                <body dir="rtl" className="md:text-lg">
                     <Main />
                     <NextScript />
                 </body>

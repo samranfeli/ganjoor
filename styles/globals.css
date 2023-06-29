@@ -50,3 +50,7 @@
 body{
   font-family: vazir , sans-serif;
 }
+
+.main-content {
+  min-height: calc(100vh - 290px);
+}

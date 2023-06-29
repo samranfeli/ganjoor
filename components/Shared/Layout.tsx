@@ -1,4 +1,5 @@
-import Header from "./Header"
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function RootLayout({
   children,
@@ -8,12 +9,12 @@ export default function RootLayout({
   return (
     <>
       <Header />
-      <main>
-        <div className='mx-auto max-w-6xl'>
+      <main className="main-content">
+        <div className='mx-auto max-w-6xl px-4'>
           {children}
         </div>
       </main>
-      <footer>footer</footer>
+      <Footer />
     </>
   )
 }
