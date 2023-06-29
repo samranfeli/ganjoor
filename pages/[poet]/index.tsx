@@ -36,6 +36,13 @@ const Poet:React.FC<Props> = (props) => {
 
     const {poet} = props;
 
+    // if (!props.poet){
+    //     return(
+    //         <div className="text-rose-500">
+    //             loading...
+    //         </div>
+    //     )
+    // }
     return(
         <div>
             <div className="py-3 sm:py-6">
@@ -57,7 +64,7 @@ const Poet:React.FC<Props> = (props) => {
                     <Link 
                         href={bookItem.fullUrl} 
                         key={bookItem.id}
-                        className="block my-2 sm:my-4 sm:mx-4 bg-white-300 border p-2 sm:p-4 shadow-sm hover:shadow-lg transition-all rounded text-center w-full sm:w-auto"
+                        className="block my-2 sm:my-4 sm:mx-4 bg-white border p-2 sm:p-4 shadow-sm hover:shadow-lg transition-all rounded text-center w-full sm:w-auto"
                     >
                         {bookItem.title}
                     </Link>
@@ -90,7 +97,7 @@ export async function getStaticPaths() {
             { params: { poet: 'nezami' } },
             { params: { poet: 'beyhaghi' } }            
          ],
-        fallback: false, // can also be true or 'blocking'
+        fallback: true
     };
 }
 
