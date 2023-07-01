@@ -15,11 +15,9 @@ const Home:React.FC<Props> = props => {
   return (
     <>
       <Head>
-        <title>گنجور</title>
-        <meta name="description" content="مجموعه اشعار شعرای پارسی زبان" />
         <meta name="keywords" content={`گنجور,مجموعه اشعار شاعران پارسی زبان,${topPoets.join(",")}`} />
       </Head>
-      
+
       <div className="flex flex-wrap justify-center py-6">
         {props.poets?.map(poet => <PoetListItem poet={poet} key={poet.id}/>)}
       </div>

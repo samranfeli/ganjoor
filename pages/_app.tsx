@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Layout>
             <Head>
-                <title>گنجور</title>
+                <title>گنجور | مجموعه اشعار شعرای پارسی زبان</title>
                 <meta name="description" content="مجموعه اشعار شعرای پارسی زبان" />
             </Head>
             <Component {...pageProps} />
