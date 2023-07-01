@@ -1,6 +1,8 @@
+import Link from "next/link";
+import Head from 'next/head';
+
 import { request } from "@/helpers";
 import { Poet } from "@/Types";
-import Link from "next/link";
 
 type Props = {
     poet?: {
@@ -44,8 +46,16 @@ const Poet:React.FC<Props> = (props) => {
         )
     }
 
+    const books = props.poet.cat.children;
+    const booksName = books.flatMap(book => [book.title, book.title + " " + props.poet!.poet.nickname]);
+
     return(
         <div>
+            <Head>
+                <title>گنجور » {props.poet.poet.nickname} </title>
+                <meta name="description" content={`مجموعه اشعار ${props.poet.poet.name}`} />
+                <meta name="keywords" content={`گنجور,مجموعه اشعار شاعران پارسی زبان,${props.poet.poet.name},${props.poet.poet.nickname},${booksName.join(",")}`} />
+            </Head>
             <div className="py-3 sm:py-6">
                 <img 
                     src={"https://api.ganjoor.net" + poet?.poet.imageUrl} 
