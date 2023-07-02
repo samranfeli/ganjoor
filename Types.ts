@@ -19,3 +19,27 @@ export interface Poet {
     validBirthDate: boolean;
     validDeathDate: boolean;
 }
+
+export interface Cat {
+    id: number;
+    title:string;
+    urlSlug:string;
+    fullUrl:string;
+    catType: 0;
+    description: string;
+    descriptionHtml: string;
+    published: boolean;
+    children:{
+        fullUrl:string;
+        id:number;
+        title:string;
+    }[];
+    poems:{
+        id: number;
+        title: string;
+        urlSlug: string;
+        excerpt: string;
+        mainSections: null
+    }[]
+    
+}

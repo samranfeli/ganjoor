@@ -1,40 +1,18 @@
 import Link from "next/link";
 import Head from 'next/head';
+import {GetStaticPropsContext, GetStaticPropsResult, GetStaticPathsResult} from 'next';
 
 import { request } from "@/helpers";
-import { Poet } from "@/Types";
+import { Poet,Cat } from "@/Types";
 
 type Props = {
     poet?: {
-        cat:{
-            children:{
-                fullUrl:string;
-                id:number;
-                title:string;
-                published:boolean;
-            }[];
-            description:string;
-            descriptionHtml:any;
-            fullUrl:string;
-            id:number;
-            title:string;
-        };
-        poet:{
-            birthPlace?:string;
-            birthYearInLHijri:number;
-            description?:string;
-            imageUrl:string;
-            id:number;
-            name:string;
-            nickname:string;
-            pinOrder:number;
-            published:boolean;
-            rootCatId:number;
-        }
+        cat:Cat;
+        poet:Poet;
     }
 }
 
-const Poet:React.FC<Props> = (props) => {
+const PoetDetail:React.FC<Props> = (props) => {
 
     const {poet} = props;
 
@@ -52,7 +30,7 @@ const Poet:React.FC<Props> = (props) => {
     return(
         <div>
             <Head>
-                <title>گنجور » {props.poet.poet.nickname} </title>
+                <title>{`گنجور » ${props.poet.poet.nickname}`}</title>
                 <meta name="description" content={`مجموعه اشعار ${props.poet.poet.name}`} />
                 <meta name="keywords" content={`گنجور,مجموعه اشعار شاعران پارسی زبان,${props.poet.poet.name},${props.poet.poet.nickname},${booksName.join(",")}`} />
             </Head>
@@ -86,7 +64,7 @@ const Poet:React.FC<Props> = (props) => {
 }
 
 
-export async function getStaticPaths() {
+export async function getStaticPaths():Promise<GetStaticPathsResult> {
     return {
         paths: [
             { params: { poet: 'hafez' } },
@@ -112,21 +90,23 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps(context:any) {
-    
-    const { params } = context;
-    
+export async function getStaticProps({params}:GetStaticPropsContext<{poet:string}>):Promise<GetStaticPropsResult<Props>> {
+        
     const allPoets = await request<Poet[]>(`https://api.ganjoor.net/api/ganjoor/poets`);
 
-    const requestedPoetId = allPoets.find(poet => poet.fullUrl === "/"+ params.poet)?.id;
+    const requestedPoetId = allPoets.find(poet => poet.fullUrl === "/"+ params!.poet)?.id;
 
-    if (requestedPoetId){
-        const poet = await request<any>(`https://api.ganjoor.net/api/ganjoor/poet/${requestedPoetId}`);
-        return {
-            props: { poet: poet },
-        };
+    if(!requestedPoetId){
+        return({
+            notFound: true
+        })
     }
+
+    const poet = await request<{cat:Cat,poet:Poet}>(`https://api.ganjoor.net/api/ganjoor/poet/${requestedPoetId}`);
+    return {
+        props: { poet: poet },
+    };
 
 }
 
- export default Poet;
+ export default PoetDetail;
