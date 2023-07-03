@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {GetServerSidePropsContext, GetServerSidePropsResult} from 'next';
+import Image from 'next/image';
 
 import { request } from "@/helpers";
 import { Cat, Poet } from '@/Types';
@@ -44,7 +45,7 @@ const Poem: React.FC<Props> = (props) => {
         <div className='py-4'>
             <div className='text-center'>
                 <Link href={poet.fullUrl} className="inline-block font-semibold text-md sm:text-lg text-center mb-2 sm:mb-4 text-gray-400">
-                    <img 
+                    <Image 
                         src={"https://api.ganjoor.net" + poet.imageUrl} 
                         alt={poet.name} 
                         className="rounded-full h-20 w-20 object-cover mb-2 mx-auto"

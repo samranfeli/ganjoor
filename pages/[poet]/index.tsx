@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Head from 'next/head';
 import {GetStaticPropsContext, GetStaticPropsResult, GetStaticPathsResult} from 'next';
+import Image from "next/image";
 
 import { request } from "@/helpers";
 import { Poet,Cat } from "@/Types";
@@ -35,9 +36,9 @@ const PoetDetail:React.FC<Props> = (props) => {
                 <meta name="keywords" content={`گنجور,مجموعه اشعار شاعران پارسی زبان,${props.poet.poet.name},${props.poet.poet.nickname},${booksName.join(",")}`} />
             </Head>
             <div className="py-3 sm:py-6">
-                <img 
+                <Image 
                     src={"https://api.ganjoor.net" + poet?.poet.imageUrl} 
-                    alt={poet?.poet.name} 
+                    alt={poet?.poet.name || ""} 
                     className="rounded-full h-20 w-20 sm:h-28 sm:w-28 object-cover mx-auto"
                     width={80} 
                     height={80} 
