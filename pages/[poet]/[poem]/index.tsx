@@ -61,11 +61,11 @@ const Poem: React.FC<Props> = (props) => {
                 {cat.description}
             </div>}
 
-            {cat.children.map(child =><Link className='block mb-3' href={child.fullUrl}>
+            {cat.children.map(child =><Link key={child.id} className='block mb-3' href={child.fullUrl}>
                 <span className='text-orange-400'>{child.title}</span>
             </Link> )}
 
-            {cat.poems.map(poem =><Link className='block mb-3' href={cat.fullUrl+"/"+poem.urlSlug}>
+            {cat.poems.map(poem =><Link key={poem.id} className='block mb-3' href={cat.fullUrl+"/"+poem.urlSlug}>
                 <span className='text-orange-400'>{poem.title}</span> : {poem.excerpt}
             </Link> )}
 
