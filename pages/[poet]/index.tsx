@@ -50,7 +50,7 @@ const PoetDetail:React.FC<Props> = (props) => {
                 {poet?.poet.description}
             </p>
             <div className="flex flex-wrap justify-center mb-4">
-                {!!poet?.cat?.children && poet.cat.children.map(bookItem => <BookItem bookItem={bookItem} />)}
+                {!!poet?.cat?.children && poet.cat.children.map(bookItem => <BookItem key={bookItem.id} bookItem={bookItem} />)}
             </div>
         </div>
     )
