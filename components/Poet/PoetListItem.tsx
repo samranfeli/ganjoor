@@ -12,14 +12,14 @@ const PoetListItem:React.FC<Props> = props => {
 
     const {poet} = props;
     return(
-        <Link href={poet.fullUrl} className="group block shrink-0 grow-0 basis-20 m-3 text-center" onClick={() => {setClicked(true)}}>
+        <Link href={poet.fullUrl!} className="group block shrink-0 grow-0 basis-20 m-3 text-center" onClick={() => {setClicked(true)}}>
             <div className={`
                 relative ${clicked?"after:block after:rounded-full after:border-4 after:border-transparent after:border-t-orange-600 after:w-full after:h-full after:absolute after:top-0 after:left-0 after:animate-spin":""}
                 group-hover:scale-105 transition-all
             `}>
                 <Image
                     src={"https://api.ganjoor.net" + poet.imageUrl} 
-                    alt={poet.name} 
+                    alt={poet.name||""} 
                     className="rounded-full h-20 w-20 object-cover"
                     width={80} 
                     height={80} 

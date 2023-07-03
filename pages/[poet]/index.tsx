@@ -1,10 +1,10 @@
-import Link from "next/link";
 import Head from 'next/head';
 import {GetStaticPropsContext, GetStaticPropsResult, GetStaticPathsResult} from 'next';
 import Image from "next/image";
 
 import { request } from "@/helpers";
 import { Poet,Cat } from "@/Types";
+import BookItem from '../../components/Poet/BookItem';
 
 type Props = {
     poet?: {
@@ -26,7 +26,7 @@ const PoetDetail:React.FC<Props> = (props) => {
     }
 
     const books = props.poet.cat.children;
-    const booksName = books.flatMap(book => [book.title, book.title + " " + props.poet!.poet.nickname]);
+    const booksName = !!books && books.flatMap(book => [book.title, book.title + " " + props.poet!.poet.nickname]) || [];
 
     return(
         <div>
@@ -50,15 +50,7 @@ const PoetDetail:React.FC<Props> = (props) => {
                 {poet?.poet.description}
             </p>
             <div className="flex flex-wrap justify-center mb-4">
-                {poet?.cat.children.map(bookItem => (
-                    <Link 
-                        href={bookItem.fullUrl} 
-                        key={bookItem.id}
-                        className="block my-2 sm:my-4 sm:mx-4 bg-white border p-2 sm:p-4 shadow-sm hover:shadow-lg transition-all rounded text-center w-full sm:w-auto"
-                    >
-                        {bookItem.title}
-                    </Link>
-                ))}
+                {!!poet?.cat?.children && poet.cat.children.map(bookItem => <BookItem bookItem={bookItem} />)}
             </div>
         </div>
     )
