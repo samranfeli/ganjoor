@@ -13,7 +13,7 @@ export type Verse = {
         text?: string;
         id: number;
         versePosition: 0 | 1 | 2 | 3 | 4 | 5 | -1;
-        coupletSummary?:string;
+        coupletSummary?: string;
     }[];
 };
 
@@ -60,6 +60,33 @@ export interface Cat {
         title: string;
     }[];
     poems?: Poem[]
+}
+export interface Recitation {
+    id: number;
+    poemId: number;
+    poemFullTitle?: string;
+    poemFullUrl?: string;
+    audioTitle?: string;
+    audioArtist?: string;
+    audioArtistUrl?: string;
+    audioSrc?: string;
+    audioSrcUrl?: string;
+    legacyAudioGuid?: string;
+    mp3FileCheckSum?: string;
+    mp3SizeInBytes: number;
+    publishDate: string;
+    fileLastUpdated: string;
+    mp3Url?: string;
+    xmlText?: string;
+    plainText?: string;
+    htmlText?: string;
+    mistakes?: {
+        mistake?: string;
+        numberOfLinesAffected: number;
+        coupletIndex: number;
+    }[];
+    audioOrder: number;
+    upVotedByUser: boolean;
 }
 
 export interface GetPageByUrlResponse {
@@ -111,7 +138,7 @@ export interface GetPageByUrlResponse {
             languageId?: number;
             coupletSummary?: string;
         }[];
-        recitations: unknown;
+        recitations: Recitation[];
         images: unknown;
         songs: unknown;
         sections: {
