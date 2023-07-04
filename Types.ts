@@ -6,6 +6,15 @@ export interface Poem {
     mainSections?: unknown
 
 }
+export type Verse = {
+    coupletIndex: number;
+    vOrder: number;
+    verses: {
+        text?: string;
+        id: number;
+        versePosition: 0 | 1 | 2 | 3 | 4 | 5 | -1;
+    }[];
+};
 
 export interface Poet {
     id: number;
@@ -104,7 +113,19 @@ export interface GetPageByUrlResponse {
         recitations: unknown;
         images: unknown;
         songs: unknown;
-        sections: unknown;
+        sections: {
+            id: number;
+            poemId: number;
+            verseType: number;
+            ganjoorMetreId: number;
+            ganjoorMetre: {
+                id: number;
+                urlSlug?: string;
+                rhythm?: string;
+                verseCount: number;
+            };
+            poemFormat: number;
+        }[];
         geoDateTags: unknown;
         sectionIndex?: number;
     };

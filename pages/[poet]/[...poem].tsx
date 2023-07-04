@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { request } from "@/helpers";
 import { GetPageByUrlResponse } from '@/Types';
 import PoetOrCat from '../../components/Poet/PoetOrCat';
-import Poem from '../../components/Poet/Poem';
+import Poem from '../../components/Poem/PoemDetail';
 
 type Props = {
     data: GetPageByUrlResponse;
