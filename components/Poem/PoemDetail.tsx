@@ -5,6 +5,7 @@ import React from "react";
 import { GetPageByUrlResponse, Verse } from "@/Types";
 import { getPoemFormat } from '../../helpers';
 import Poem from './Poem';
+import VersesSummary from './VersesSummary';
 
 type Props = {
     data: GetPageByUrlResponse;
@@ -23,13 +24,14 @@ const PoemDetail: React.FC<Props> = props => {
             updatingItem?.verses.push({
                 id: verse.id,
                 text: verse.text,
-                versePosition: verse.versePosition
+                versePosition: verse.versePosition,
+                coupletSummary : verse.coupletSummary
             });
         } else {
             versesArray.push({
                 vOrder: verse.vOrder,
                 coupletIndex: verse.coupletIndex!,
-                verses: [{ id: verse.id, text: verse.text, versePosition: verse.versePosition }]
+                verses: [{ id: verse.id, text: verse.text, versePosition: verse.versePosition , coupletSummary:verse.coupletSummary }]
             })
         }
     }
@@ -66,14 +68,14 @@ const PoemDetail: React.FC<Props> = props => {
 
                 </div>
 
-                <div className="p-4 my-4 bg-violet-50 rounded border border-violet-200">
-                    <h4 className="mb-4 text-lg">اطلاعات</h4>
+                <div className="p-4 my-4 bg-violet-50 rounded border border-violet-200 text-center">
+                    <h4 className="mb-4 text-lg font-semibold">اطلاعات</h4>
 
                     {!!poem.sections[0]?.ganjoorMetre?.rhythm && <div className="mb-3">
                         وزن: {poem.sections[0].ganjoorMetre.rhythm}
                     </div>}
 
-                    {!!getPoemFormat(poem.sections[0].poemFormat) && <div className="mb-3">
+                    {!!getPoemFormat(poem.sections[0]?.poemFormat) && <div className="mb-3">
                         قالب شعری:	{getPoemFormat(poem.sections[0].poemFormat)}
                     </div>}
 
@@ -83,6 +85,8 @@ const PoemDetail: React.FC<Props> = props => {
 
                     <p className="mt-6">* با انتخاب متن و لمس متن انتخابی می‌توانید آن را در لغتنامهٔ دهخدا جستجو کنید.</p>
                 </div>
+
+                <VersesSummary verses={versesArray} />
 
             </div>
 

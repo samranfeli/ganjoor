@@ -13,6 +13,7 @@ export type Verse = {
         text?: string;
         id: number;
         versePosition: 0 | 1 | 2 | 3 | 4 | 5 | -1;
+        coupletSummary?:string;
     }[];
 };
 

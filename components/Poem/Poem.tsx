@@ -88,10 +88,7 @@ const Poem: React.FC<Props> = props => {
 
                 </div>
             )}
-            <div
-                onMouseUp={mouseUpHandle} onTouchEnd={touchEndHandle}
-                onContextMenu={e => { e.preventDefault() }}
-            >
+            <div onMouseUp={mouseUpHandle} onTouchEnd={touchEndHandle} >
                 {verses.map(verse => <React.Fragment key={verse.coupletIndex} >
 
                     {verse.verses[0].versePosition === -1 ? (
@@ -100,7 +97,7 @@ const Poem: React.FC<Props> = props => {
                         </p>
                     ) : verse.verses[0].versePosition === 2 || verse.verses[0].versePosition === 3 ? (
                         <div className="text-center mb-3 sm:mb-6 text-base sm:text-lg">
-                            {verse.verses.map(hemistich => <div key={hemistich.id} className="text-bold"> {hemistich.text} </div>)}
+                            {verse.verses.map(hemistich => <div key={hemistich.id} className="font-semibold"> {hemistich.text} </div>)}
                         </div>
                     ) : (
                         <div
