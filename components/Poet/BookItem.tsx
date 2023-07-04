@@ -22,7 +22,7 @@ const BookItem: React.FC<Props> = props => {
             key={bookItem.id}
             className="block my-2 sm:my-4 sm:mx-4 bg-white border p-2 sm:p-4 shadow-sm hover:shadow-lg transition-all rounded text-center w-full sm:w-auto"
         >
-            {bookItem.title} {!!clicked && <span className='inline-block mr-2 align-middle rounded-full border-2 border-transparent border-t-orange-600 w-5 h-5 animate-spin'/>}
+            {bookItem.title} {clicked ? <i className="zmdi zmdi-refresh animate-spin mr-2 align-middle text-2xl w-4" /> : <i className="zmdi zmdi-chevron-left mr-2 align-middle text-2xl w-4" /> }
         </Link>
     )
 }

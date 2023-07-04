@@ -1,16 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 import { GetPageByUrlResponse } from "@/Types";
-import React from "react";
 
 type Props = {
     data: GetPageByUrlResponse;
 }
 
 const Poem: React.FC<Props> = props => {
-
-    console.dir(props.data);
 
     const {poem} = props.data;
     const {poet} = poem.category;
@@ -43,6 +41,7 @@ const Poem: React.FC<Props> = props => {
             })
         }
     }
+
 
 
     return (
@@ -82,6 +81,19 @@ const Poem: React.FC<Props> = props => {
 
                 </React.Fragment>
                 )}
+
+                <div className="clearfix mt-4">
+
+                    {!!poem.previous && <Link href={poem.category.cat.fullUrl+"/"+ poem.previous.urlSlug} className="text-blue-500 float-right">
+                    <i className="zmdi zmdi-chevron-right ml-2 align-middle text-2xl" />{poem.previous.title}: {poem.previous.excerpt}
+                    </Link>}
+
+                    {poem.next && <Link href={poem.category.cat.fullUrl+"/"+ poem.next.urlSlug} className="text-blue-500 float-left">
+                    {poem.next.title}: {poem.next.excerpt} <i className="zmdi zmdi-chevron-left mr-2 align-middle text-2xl" />
+                    </Link>}
+
+                </div>
+
             </div>
 
         </div>

@@ -1,4 +1,4 @@
-interface Poem {
+export interface Poem {
     id: number;
     title?: string;
     urlSlug?: string;

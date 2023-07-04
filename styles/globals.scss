@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .clearfix{
+    &::after,&::before{
+      content:"";
+      display:table;
+      clear: both;
+    }
+  }
+}
+
 @font-face {
   font-family: "vazir";
   font-style: normal;
@@ -54,4 +64,8 @@ body{
 
 .main-content {
   min-height: calc(100vh - 290px);
+}
+
+.ant-pagination .ant-pagination-item {
+  font-family: 'vazir';
 }

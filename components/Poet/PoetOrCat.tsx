@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { GetPageByUrlResponse } from "@/Types";
+import PoemsList from './PoemsList';
+import CategoeyChildItem from "./CategoeyChildItem";
 
 type Props = {
     data: GetPageByUrlResponse;
@@ -39,13 +41,11 @@ const PoetOrCat: React.FC<Props> = props => {
                 {cat.description}
             </div>}
 
-            {!!cat.children && cat.children.map(child => <Link key={child.id} className='block mb-3' href={child.fullUrl}>
-                <span className='text-orange-400'>{child.title}</span>
-            </Link>)}
+            {!!cat.children && cat.children.map(child => <CategoeyChildItem child={child} key={child.id} />)}
+  
+            {!!cat.poems && !!cat.fullUrl && <PoemsList poems={cat.poems} categoryUrl={cat.fullUrl} /> }
+            
 
-            {!!cat.poems && cat.poems.map(poem => <Link key={poem.id} className='block mb-3' href={cat.fullUrl + "/" + poem.urlSlug}>
-                <span className='text-orange-400'>{poem.title}</span> : {poem.excerpt}
-            </Link>)}
         </>
     )
 }
