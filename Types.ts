@@ -88,7 +88,21 @@ export interface Recitation {
     audioOrder: number;
     upVotedByUser: boolean;
 }
-
+export interface Comment {
+    id:number;
+    authorName?:string;
+    authorUrl?:string;
+    commentDate:string;
+    htmlComment?:string;
+    publishStatus?:string;
+    inReplyToId?:number;
+    userId?:string;
+    replies:Comment[];
+    myComment:boolean;
+    coupletIndex:number;
+    coupletSummary?:string;
+    isBookmarked: boolean;
+}
 export interface GetPageByUrlResponse {
     id: number;
     ganjoorPageType: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
@@ -156,6 +170,7 @@ export interface GetPageByUrlResponse {
         }[];
         geoDateTags: unknown;
         sectionIndex?: number;
+        comments:Comment[];
     };
     secondPoet: unknown;
     next: {

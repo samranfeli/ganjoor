@@ -7,6 +7,7 @@ import { getPoemFormat } from '../../helpers';
 import Poem from './Poem';
 import VersesSummary from './VersesSummary';
 import Recitation from './Recitation';
+import Comments from '../Comments';
 
 type Props = {
     data: GetPageByUrlResponse;
@@ -90,6 +91,8 @@ const PoemDetail: React.FC<Props> = props => {
                 <VersesSummary verses={versesArray} />
 
                 <Recitation recitations={poem.recitations} />
+                
+                <Comments comments={poem.comments} />
 
             </div>
 
