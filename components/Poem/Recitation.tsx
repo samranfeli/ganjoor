@@ -14,8 +14,10 @@ const Recitation : React.FC<Props> = props => {
     }
 
     return(
-        <div className='text-center'>
-            <h4 className="mt-8 md:mt-10 mb-4 md:mb-6 text-lg font-semibold">خوانش ها</h4>
+        <div className='text-center px-2 md:px-4 bg-gray-200 border border-gray-300 pt-2 md:pt-6 mt-6 md:mt-10 rounded'>
+            
+            <h4 className="mb-2 md:mb-6 text-lg font-semibold">خوانش ها</h4>
+
             {recitations.map(recitation => <div className='mb-4 md:mb-8' key={recitation.id}>
 
             
@@ -27,7 +29,7 @@ const Recitation : React.FC<Props> = props => {
                     <span className='ml-2'> {recitation.audioTitle} به خوانش </span>
 
                     {recitation.audioArtistUrl ? (
-                        <Link href={recitation.audioArtistUrl} className="text-sky-400"> {recitation.audioArtist} </Link>
+                        <Link href={recitation.audioArtistUrl} className="text-sky-600"> {recitation.audioArtist} </Link>
                     ) : (
                         <span> {recitation.audioArtist} </span>
                     )}

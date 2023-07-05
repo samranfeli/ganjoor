@@ -60,11 +60,11 @@ const PoemDetail: React.FC<Props> = props => {
 
                 <div className="clearfix mt-4 sm:mt-10">
 
-                    {!!poem.previous && <Link href={poem.category.cat.fullUrl + "/" + poem.previous.urlSlug} className="text-blue-500 float-right">
+                    {!!poem.previous && <Link href={poem.category.cat.fullUrl + "/" + poem.previous.urlSlug} className="text-sky-600 float-right">
                         <i className="zmdi zmdi-chevron-right ml-2 align-middle text-2xl" />{poem.previous.title}: {poem.previous.excerpt}
                     </Link>}
 
-                    {poem.next && <Link href={poem.category.cat.fullUrl + "/" + poem.next.urlSlug} className="text-blue-500 float-left">
+                    {poem.next && <Link href={poem.category.cat.fullUrl + "/" + poem.next.urlSlug} className="text-sky-600 float-left">
                         {poem.next.title}: {poem.next.excerpt} <i className="zmdi zmdi-chevron-left mr-2 align-middle text-2xl" />
                     </Link>}
 
