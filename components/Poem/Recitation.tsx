@@ -23,7 +23,15 @@ const Recitation : React.FC<Props> = props => {
                 <source src={recitation.mp3Url} type="audio/mpeg" title={`${recitation.audioTitle} به خوانش ${recitation.audioArtist}`} />  
                 مرورگر شما از پخش خوانش این شعر پشتیبانی نمیکند.
             </audio>  
-            <h5>{recitation.audioTitle} به خوانش <Link href={recitation.audioArtistUrl || "#"}>{recitation.audioArtist}</Link></h5>
+                <h5 className='mt-2'>
+                    <span className='ml-2'> {recitation.audioTitle} به خوانش </span>
+
+                    {recitation.audioArtistUrl ? (
+                        <Link href={recitation.audioArtistUrl} className="text-sky-400"> {recitation.audioArtist} </Link>
+                    ) : (
+                        <span> {recitation.audioArtist} </span>
+                    )}
+                </h5>
 
             </div>)}
         </div>

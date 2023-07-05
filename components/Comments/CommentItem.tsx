@@ -1,4 +1,4 @@
-
+import Link from 'next/link';
 import parse from 'html-react-parser';
 import moment from 'moment-jalaali';
 
@@ -19,7 +19,10 @@ const CommentItem: React.FC<Props> = props => {
                     <i className="zmdi zmdi-calendar align-middle" /> <span>{moment(comment.commentDate).format("jYYYY/jMM/DD")}</span>
                     <i className="zmdi zmdi-time align-middle ml-4" /> <span>{moment(comment.commentDate).format("HH:MM")}</span>
                 </div>
-                <div className='font-semibold'> <i className="zmdi zmdi-account-circle text-4xl text-orange-300 align-middle ml-2" /> {comment.authorName}</div>
+                <div className='font-semibold'>
+                     <i className="zmdi zmdi-account-circle text-4xl text-orange-300 align-middle ml-2" /> 
+                     {comment.authorUrl ? <Link href={comment.authorUrl} className="text-sky-400">{comment.authorName}</Link>:comment.authorName}
+                </div>
             </div>
 
             {comment.htmlComment && parse(comment.htmlComment)}
