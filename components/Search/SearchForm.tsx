@@ -1,18 +1,21 @@
-import { Input, Button, Form } from "antd";
+import { Button, Form } from "antd";
 import { SearchOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/router';
+import { useRef } from "react";
 
 type Props = {
     placeholder?: string;
 }
 
-const Search: React.FC<Props> = props => {
+const SearchForm: React.FC<Props> = props => {
 
     const router = useRouter();
+    const searchInputRef = useRef<HTMLInputElement>(null);
 
-    const onSubmit = (values:{text:string}) => {
-        if(!values.text) return;
-        router.push(`/search?s=${values.text}`)
+    const onSubmit = (values: { text: string }) => {
+        if (!values.text) return;
+        router.push(`/search?s=${values.text}`);
+        searchInputRef.current!.value = "";
     }
 
     return (
@@ -23,7 +26,11 @@ const Search: React.FC<Props> = props => {
             autoComplete="off"
         >
             <Form.Item className="mb-0" name="text">
-                <Input className="w-full bg-gray-600 h-10 md:h-12 text-white focus:bg-gray-700 placeholder:text-white" placeholder={props.placeholder || ""} />
+                <input
+                    className="w-full bg-gray-600 h-10 md:h-12 text-white focus:bg-gray-700 placeholder:text-white px-4 rounded placeholder:vazir text-base"
+                    placeholder={props.placeholder || ""}
+                    ref={searchInputRef}
+                />
             </Form.Item>
 
             <Button
@@ -36,4 +43,4 @@ const Search: React.FC<Props> = props => {
     )
 }
 
-export default Search;
+export default SearchForm;

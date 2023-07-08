@@ -184,3 +184,19 @@ export interface GetPageByUrlResponse {
         fullUrl?: string;
     };
 }
+
+export interface SearchItemType {
+    id: number;
+    fullTitle?: string;
+    fullUrl?: string;
+    title?: string;
+    plainText?: string;
+    htmlText?: string;
+    category: {
+        poet: {
+            imageUrl?: string;
+            name?:string;
+            nickname?:string;
+        };
+    };
+}

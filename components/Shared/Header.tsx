@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Logo from '../../assets/images/logo.png';
-import Search from './Search';
+import Search from '../Search/SearchForm';
 
 const Header: React.FC = () => {
     return (
