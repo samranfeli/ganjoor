@@ -17,12 +17,9 @@ const Search: React.FC = () => {
         setCurrentPage(e);
     }
 
-    if (!searchParams) {
-        return null;
-    }
 
-    const searchTerm = searchParams.get('s');
-    const poetId = searchParams.get('author');
+    const searchTerm = searchParams?.get('s');
+    const poetId = searchParams?.get('author');
 
     let url = `https://api.ganjoor.net/api/ganjoor/poems/search?PageNumber=${currentPage}&PageSize=10&term=${searchTerm}&catId=0`;
     if (poetId) {
