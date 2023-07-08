@@ -1,7 +1,9 @@
-import { SearchItemType } from "@/Types";
 import Link from 'next/link';
 import Image from 'next/image';
 import parse from 'html-react-parser';
+
+import { SearchItemType } from "@/Types";
+import {useState} from 'react';
 
 type Props = {
     item: SearchItemType;
@@ -11,6 +13,8 @@ type Props = {
 const SearchResultItem: React.FC<Props> = props => {
 
     const { item, searchedText } = props;
+
+    const [clicked,setClicked] = useState<boolean>(false);
 
     if (!item.plainText) {
         return null;
@@ -41,8 +45,8 @@ const SearchResultItem: React.FC<Props> = props => {
                     width={50}
                     height={50}
                 />
-                <Link href={item.fullUrl!} className="text-sky-600 text-lg block font-semibold">
-                    {item.fullTitle}
+                <Link href={item.fullUrl!} className="text-sky-600 text-lg block font-semibold"  onClick={()=>{setClicked(true)}}>
+                    {item.fullTitle} {clicked ? <i className="zmdi zmdi-refresh animate-spin mr-2 align-middle text-2xl w-4" /> : <i className="zmdi zmdi-chevron-left mr-2 align-middle text-2xl w-4" />}
                 </Link>
             </div>
             <div className="text-base text-gray-500">
