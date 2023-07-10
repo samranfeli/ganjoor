@@ -24,7 +24,7 @@ const SearchResultItem: React.FC<Props> = props => {
 
     const versesHasTerm: string[] = [];
 
-    versesArray.forEach((verse, index, array) => {
+    versesArray?.forEach((verse, index, array) => {
         if (verse.includes(`${searchedText}`)) {
             const transformedVerse = verse.replaceAll(`${searchedText}`, `<mark>${searchedText}</mark>`);
             versesHasTerm.push(transformedVerse);
