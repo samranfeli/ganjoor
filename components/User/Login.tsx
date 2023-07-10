@@ -1,31 +1,22 @@
 
 import Link from 'next/link';
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/use-store";
 import { setUserData } from "@/store/userSlice";
-import { UserData } from '@/Types';
 
 const Login:React.FC = () => {
     const dispatch = useAppDispatch();
 
-    let user: UserData['user'] | undefined;
-
     let ganjoorSessionId : string | undefined;
+
+    const user = useAppSelector(state => state.userData?.user);
 
     if (typeof window !== "undefined"){
         ganjoorSessionId = localStorage?.getItem("G-sessionId") || undefined;
-        user = useAppSelector(state => state.userData?.user);
     }
-    useEffect(() => {
 
-        if (ganjoorSessionId && !user) {
-            getUserData(ganjoorSessionId);
-        }
-
-    }, [user,ganjoorSessionId]);
-
-    const getUserData = async (id: string) => {
+    const getUserData = useCallback(async (id: string) => {
         const response = await fetch(`https://api.ganjoor.net/api/users/relogin/${id}`, {
             method: "PUT",
             headers: {
@@ -38,7 +29,17 @@ const Login:React.FC = () => {
         localStorage.setItem("G-sessionId", responseData.sessionId);
         dispatch(setUserData(responseData));
 
-    }
+    },[]);
+
+    useEffect(() => {
+
+        if (ganjoorSessionId && !user) {
+            getUserData(ganjoorSessionId);
+        }
+
+    }, [user,ganjoorSessionId,getUserData]);
+
+
 
     const logout = () => {
         localStorage.removeItem("G-sessionId");

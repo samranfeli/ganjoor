@@ -49,7 +49,7 @@ const Login : React.FC = () => {
                 localStorage.setItem("G-sessionId", responseData.sessionId);
 
                 dispatch(setUserData(responseData));
-                router.push(`/profile`);
+                router.push(`/`);
             } else{
                 setLoading(false);
             }
