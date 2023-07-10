@@ -108,7 +108,7 @@ const Login : React.FC = () => {
 
                     <button
                         type="submit"
-                        className="my-2 w-full bg-amber-500 hover:bg-blue-600 transition-all text-white vazir hover:text-white focus:text-white active:text-white rounded h-11 text-lg"
+                        className="my-2 w-full bg-amber-500 md:hover:bg-amber-600 transition-all text-white vazir md:hover:text-white focus:text-white active:text-white rounded h-11 text-lg"
                     >
                         ورود {!!loading && <i className="zmdi zmdi-refresh animate-spin mr-2 align-middle text-2xl w-4" />}
                     </button>

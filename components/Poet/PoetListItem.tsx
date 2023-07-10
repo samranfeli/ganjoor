@@ -13,7 +13,7 @@ const PoetListItem:React.FC<Props> = props => {
     const {poet} = props;
     return(
         <Link href={poet.fullUrl!} className="group block shrink-0 grow-0 basis-20 m-3 text-center" onClick={() => {setClicked(true)}}>
-            <div className={`relative transition-all ${clicked?"scale-105":"group-hover:scale-105"}`}>
+            <div className={`relative transition-all ${clicked?"scale-105":"md:group-hover:scale-105"}`}>
                 <Image
                     src={"https://api.ganjoor.net" + poet.imageUrl} 
                     alt={poet.name||""} 

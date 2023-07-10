@@ -73,7 +73,7 @@ const Poem: React.FC<Props> = props => {
                     <Link 
                         target="_blank" 
                         href={`https://vajehyab.com/?q=${selectedText}`} 
-                        className="inline-block p-2 text-white hover:bg-black rounded transition-all"
+                        className="inline-block p-2 text-white md:hover:bg-black rounded transition-all"
                     >
                         لغتنامه 
                     </Link>
@@ -81,7 +81,7 @@ const Poem: React.FC<Props> = props => {
                     <Link 
                         target="_blank" 
                         href={`/search?s=${selectedText}`} 
-                        className="inline-block p-2 text-white hover:bg-black rounded transition-all"
+                        className="inline-block p-2 text-white md:hover:bg-black rounded transition-all"
                     >
                         جستجو
                     </Link>

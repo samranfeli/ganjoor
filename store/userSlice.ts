@@ -1,7 +1,8 @@
+import { UserData } from "@/Types";
 import { createSlice } from "@reduxjs/toolkit"
 
 interface UserState {
-    userData: any;
+    userData: UserData | undefined;
 }
 
 const initialState : UserState = {

@@ -50,11 +50,23 @@ const Login:React.FC = () => {
         <div>
             {user?(
                 <>
-                    <Link href='/profile' className='text-white hover:text-amber-400 transition-all ml-6'> پروفایل کاربری </Link>
-                    <button type='button' className='text-white hover:text-amber-400 transition-all border-0 vazir' onClick={logout}> خروج </button>
+                    <Link href='/profile' className='text-sm md:text-base text-white md:hover:text-amber-400 transition-all ml-6'>                         
+                         <span className='hidden md:inline-block'> پیشخوان کاربر  </span>
+                         <i className="text-3xl zmdi zmdi-account md:hidden align-middle" />
+                    </Link>
+
+                    <button type='button' className='text-sm md:text-base text-white md:hover:text-amber-400 transition-all border-0 vazir' onClick={logout}>
+                         
+                         <span className='hidden md:inline-block'> خروج   </span>
+                         <i className="text-3xl zmdi zmdi-power md:hidden align-middle" />
+                    </button>
                 </>
             ):(
-                <Link href='/login' className='text-white hover:text-amber-400 transition-all'>ورود</Link>                
+                <Link href='/login' className='text-sm md:text-base text-white md:hover:text-amber-400 transition-all'>
+                    
+                    <span className='hidden md:inline-block'> ورود </span>
+                    <i className=" text-3xl zmdi zmdi-account md:hidden align-middle" />
+                </Link>                
             )}
         </div>
     )

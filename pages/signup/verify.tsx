@@ -76,7 +76,7 @@ const Verify: React.FC = () => {
                         <Col flex='1 1 33%'>
                             <Link
                                 href={'/signup'}
-                                className="my-2 w-full bg-gray-400 hover:bg-gray-500 transition-all text-white block flex justify-center items-center vazir hover:text-white focus:text-white active:text-white rounded h-11 text-lg"
+                                className="my-2 w-full bg-gray-400 md:hover:bg-gray-500 transition-all text-white block flex justify-center items-center vazir md:hover:text-white focus:text-white active:text-white rounded h-11 text-lg"
                             >
                                 مرحله قبل
                             </Link>
@@ -85,7 +85,7 @@ const Verify: React.FC = () => {
                             <button
                                 disabled={!!loading}
                                 type="submit"
-                                className="my-2 w-full bg-amber-500 text-white vazir hover:text-white hover:bg-blue-600 transition-all focus:text-white active:text-white rounded h-11 text-lg"
+                                className="my-2 w-full bg-amber-500 md:hover:bg-amber-600 text-white vazir md:hover:text-white md:hover:bg-blue-600 transition-all focus:text-white active:text-white rounded h-11 text-lg"
                             >
                                 ادامه {!!loading && <i className="zmdi zmdi-refresh animate-spin mr-2 align-middle text-2xl w-4" />}
 
