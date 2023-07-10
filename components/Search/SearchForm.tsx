@@ -33,7 +33,7 @@ const SearchForm: React.FC<Props> = props => {
         >
             <Form.Item className="mb-0" name="text">
                 <Input
-                    className="w-full bg-gray-600 h-10 md:h-12 text-white focus:bg-gray-700 placeholder:text-white px-4 rounded placeholder:vazir text-base"
+                    className="w-full bg-white h-8 md:h-10 px-4 rounded placeholder:vazir md:text-base"
                     placeholder={props.placeholder || ""}
                     ref={searchInputRef}
                 />
@@ -41,9 +41,9 @@ const SearchForm: React.FC<Props> = props => {
 
             <Button
                 htmlType="submit"
-                className="absolute top-0 left-0  h-10 w-10 md:h-12 md:w-12 p-0 border-0"
+                className="absolute top-0 left-0  h-8 w-10 md:h-10 md:w-10 p-0 border-0"
             >
-                <SearchOutlined className="text-2xl text-white leading-5" />
+                <SearchOutlined className="text-xl leading-5" />
             </Button>
         </Form>
     )

@@ -200,3 +200,27 @@ export interface SearchItemType {
         };
     };
 }
+
+export interface UserData {
+    sessionId:string;
+    token?: string;
+    user: {
+        id?: string;
+        username?: string;
+        email?: string;
+        phoneNumber?: string;
+        firstName?: string;
+        sureName?: string;
+        status: 0| 1;
+        rImageId?: string;
+        nickName?: string;
+        bio?: string;
+        website?: string;
+        emailConfirmed: boolean;
+    };
+    securableItem:{
+        shortName?:string;
+        description?:string;
+        operations:unknown[];
+    }[]
+}
