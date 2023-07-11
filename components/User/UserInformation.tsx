@@ -24,7 +24,7 @@ const UserInformation: React.FC = () => {
                 website: userData.user.website
             })
         }
-    }, [userData]);
+    }, [userData,form]);
 
     type formValues = {
         firstName: string;

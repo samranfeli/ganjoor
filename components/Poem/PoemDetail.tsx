@@ -92,7 +92,7 @@ const PoemDetail: React.FC<Props> = props => {
 
                 <Recitation recitations={poem.recitations} />
                 
-                <Comments comments={poem.comments} />
+                <Comments comments={poem.comments} poemId={poem.id} />
 
             </div>
 
