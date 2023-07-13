@@ -27,7 +27,7 @@ const Songs: React.FC<Props> = props => {
                 {song.trackUrl ? <Link href={song.trackUrl} target='_blank' className='group mb-4 md:mb-8 bg-white flex justify-between items-center mb-3 rounded py-3 px-4 text-right shadow hover:shadow-lg transition-all' >
                     <Row align={'middle'} gutter={[10, 10]}>
                         <Col>
-                            <i className="zmdi zmdi-collection-music ml-2 text-3xl align-middle" /> <i> <b> "{song.trackName}" </b> </i>
+                            <i className="zmdi zmdi-collection-music ml-2 text-3xl align-middle" /> <i> <b> &quot;{song.trackName}&quot; </b> </i>
                         </Col>
                         <Col>
                             {!!song.artistName && <> با صدای <b className='mx-1'> {song.artistName} </b> </>} {song.albumName && <span> (آلبوم {song.albumName})</span>}
