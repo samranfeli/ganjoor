@@ -126,7 +126,7 @@ const UserInformation: React.FC = () => {
                     rules={[{ required: true, message: "لطفاً نام مستعار خود را وارد کنید." }]}
                 >
                     <Input
-                        className="w-full placeholder:vazir rounded"
+                        className="w-full vazir placeholder:vazir rounded"
                         placeholder="نام مستعار"
                         size="large"
                     />

@@ -103,6 +103,25 @@ export interface Comment {
     coupletSummary?:string;
     isBookmarked: boolean;
 }
+export interface Song{
+    id: number;
+    poemId: number;
+    trackType: 0|1|2|3|-1;
+    artistName?:string;
+    artistUrl?:string;
+    albumName?:string;
+    albumUrl?:string;
+    trackName?:string;
+    trackUrl?:string;
+    description?:string;
+    brokenLink:boolean;
+    golhaTrackId:number;
+    approved: boolean;
+    rejected: boolean;
+    rejectionCause?:string;
+    suggestedById?:string;
+    suggestedByNickName?:string;
+}
 export interface GetPageByUrlResponse {
     id: number;
     ganjoorPageType: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
@@ -154,7 +173,7 @@ export interface GetPageByUrlResponse {
         }[];
         recitations: Recitation[];
         images: unknown;
-        songs: unknown;
+        songs: Song[];
         sections: {
             id: number;
             poemId: number;
