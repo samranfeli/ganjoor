@@ -19,8 +19,10 @@ const PoetDetail:React.FC<Props> = (props) => {
 
     if (!props.poet){
         return(
-            <div className="text-rose-500">
-                loading...
+            <div className="py-5 text-center">
+                <span
+                    className="inline-block rounded-full border-4 border-transparent border-t-gray-400 animate-spin transition-all w-12 h-12 md:w-24 md:h-24 md:border-8"
+                />
             </div>
         )
     }
