@@ -6,15 +6,16 @@ export interface Poem {
     mainSections?: unknown
 
 }
+export type Mesra = {
+    text?: string;
+    id: number;
+    versePosition: 0 | 1 | 2 | 3 | 4 | 5 | -1;
+    coupletSummary?: string;
+}
 export type Verse = {
     coupletIndex: number;
     vOrder: number;
-    verses: {
-        text?: string;
-        id: number;
-        versePosition: 0 | 1 | 2 | 3 | 4 | 5 | -1;
-        coupletSummary?: string;
-    }[];
+    verses: Mesra[];
 };
 
 export interface Poet {

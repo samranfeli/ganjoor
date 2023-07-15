@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <>
       <Header />
-      <main className="main-content">
+      <main className="main-content-height-mobile md:main-content-height-desktop">
         <div className='mx-auto max-w-6xl px-4'>
           {children}
         </div>

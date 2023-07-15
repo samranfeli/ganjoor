@@ -48,6 +48,13 @@
 }
 
 @layer utilities {
+  .main-content-height-mobile {
+    min-height: calc(100vh - 222px);
+  }
+  .main-content-height-desktop {
+    min-height: calc(100vh - 294px);
+  }
+
   .clearfix{
     &::after,&::before{
       content:"";
@@ -64,10 +71,6 @@
 body{
   font-family: vazir , sans-serif;
   background-image: url('../assets/images/bg.png');
-}
-
-.main-content {
-  min-height: calc(100vh - 294px);
 }
 
 .ant-pagination .ant-pagination-item {
