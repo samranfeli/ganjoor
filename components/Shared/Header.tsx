@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { memo } from 'react';
 import Link from 'next/link';
 
 import Logo from '../../assets/images/logo.png';
@@ -34,4 +35,4 @@ const Header: React.FC = () => {
     )
 }
 
-export default Header;
+export default memo(Header);
