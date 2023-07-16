@@ -79,8 +79,15 @@ const Random: FC = () => {
 
     if(errorMessage){
         return(
-            <div className="py-4 md:py-8 main-content-height-mobile md:main-content-height-desktop flex justify-center items-center text-rose-500">
-                {errorMessage}
+            <div className="py-4 md:py-8 main-content-height-mobile md:main-content-height-desktop flex flex-col justify-between text-center">
+                <div />
+                <div className="items-center text-rose-500">
+                    {errorMessage}
+                </div>
+
+                <div>
+                    <span onClick={() => { fetchRandomPoem() }} className="cursor-pointer text-sky-500 md:hover:text-gray-500">تلاش دوباره  <i className={`zmdi zmdi-refresh mr-2 align-middle text-2xl w-4 ${loading ? "animate-spin" : ""}`} title="بیتی دیگر" /></span>
+                </div>                
             </div>
         )
     }
@@ -92,7 +99,7 @@ const Random: FC = () => {
             <div className="md:flex md:justify-between md:w-3/5 md:mx-auto">
                 {randomBeit ? (
                     <>
-                        {randomBeit.map(verseItem => <span className="block text-center mb-2" key={verseItem.id}>{verseItem.text}</span>)}
+                        {randomBeit.map(verseItem => <span className="block text-center mb-2 animate-fade-in md:text-xl" key={verseItem.id}>{verseItem.text}</span>)}
                     </>
                 ) : (
                     <>
@@ -104,7 +111,7 @@ const Random: FC = () => {
 
             <div className="text-center text-sm md:text-base">
                 {randomResponse ? (
-                    <Link href={randomResponse?.fullUrl || "#"} className="text-sky-500 md:hover:text-gray-500 mb-4 inline-block" >{randomResponse?.fullTitle || " "}</Link>
+                    <Link href={randomResponse?.fullUrl || "#"} className="text-sky-500 md:hover:text-gray-500 mb-4 inline-block animate-fade-in" >{randomResponse?.fullTitle || " "}</Link>
                 ) : (
                     <Skeleton.Input active size="small" className="mb-2" />
                 )}
