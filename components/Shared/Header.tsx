@@ -1,7 +1,5 @@
 import { memo } from 'react';
 import Link from 'next/link';
-
-import Logo from '../../assets/images/logo.png';
 import Search from '../Search/SearchForm';
 import Login from '../User/Login';
 
@@ -12,7 +10,7 @@ const Header: React.FC = () => {
                 <div className='py-2 md:py-6 flex justify-center'>
                     <Link href={'/'}>
                         <img
-                            src={Logo}
+                            src="/logo.png"
                             alt="گنجور"
                             width={120}
                             height={120}

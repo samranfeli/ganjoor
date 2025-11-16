@@ -1,10 +1,5 @@
 import Head from "next/head";
 
-import InstagramIcon from '../assets/images/instagram.svg';
-import TelegramIcon from '../assets/images/telegram.svg';
-import TwitterIcon from '../assets/images/twitter.svg';
-import FacebookIcon from '../assets/images/facebook.svg';
-
 const Contact: React.FC = () => {
     return (
         <>
@@ -26,19 +21,19 @@ const Contact: React.FC = () => {
                 </p>
                 <div className="text-center py-4">
                     <a href="https://telegram.me/GanjoorOfficial" target="_blank" className="inline-block mx-2 md:mx-4">
-                        <img src={TelegramIcon} alt="telegram" width="48" height="48" className="h-8 w-8 md:h-12 md:w-12" />
+                        <img src="/icons/telegram.svg" alt="telegram" width="48" height="48" className="h-8 w-8 md:h-12 md:w-12" />
                     </a>
 
                     <a href="http://www.facebook.com/ganjoor" target="_blank" className="inline-block mx-2 md:mx-4">
-                        <img src={FacebookIcon} alt="facebook" width="48" height="48" className="h-8 w-8 md:h-12 md:w-12" />
+                        <img src="/icons/facebook.svg" alt="facebook" width="48" height="48" className="h-8 w-8 md:h-12 md:w-12" />
                     </a>
 
                     <a href="https://www.instagram.com/ganjoorofficial/" target="_blank" className="inline-block mx-2 md:mx-4">
-                        <img src={InstagramIcon} alt="instagram" width="48" height="48" className="h-8 w-8 md:h-12 md:w-12" />
+                        <img src="/icons/instagram.svg" alt="instagram" width="48" height="48" className="h-8 w-8 md:h-12 md:w-12" />
                     </a>
 
                     <a href="https://twitter.com/GanjoorOfficial" target="_blank" className="inline-block mx-2 md:mx-4">
-                        <img src={TwitterIcon} alt="twitter" width="48" height="48" className="h-8 w-8 md:h-12 md:w-12" />
+                        <img src="/icons/twitter.svg" alt="twitter" width="48" height="48" className="h-8 w-8 md:h-12 md:w-12" />
                     </a>
                 </div>
 
