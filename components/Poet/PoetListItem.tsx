@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -14,7 +13,7 @@ const PoetListItem:React.FC<Props> = props => {
     return(
         <Link href={poet.fullUrl!} className="group block shrink-0 grow-0 basis-20 m-3 text-center" onClick={() => {setClicked(true)}}>
             <div className={`relative transition-all ${clicked?"scale-105":"md:group-hover:scale-105"}`}>
-                <Image
+                <img
                     src={"https://api.ganjoor.net" + poet.imageUrl} 
                     alt={poet.name||""} 
                     className="rounded-full h-20 w-20 object-cover"
