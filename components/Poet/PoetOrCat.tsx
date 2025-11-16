@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { GetPageByUrlResponse } from "@/Types";
@@ -25,7 +24,7 @@ const PoetOrCat: React.FC<Props> = props => {
         <>
             <div className='text-center'>
                 <Link href={poet.fullUrl || ""} className="inline-block font-semibold text-md sm:text-lg text-center mb-2 sm:mb-4 text-gray-400">
-                    <Image
+                    <img
                         src={"https://api.ganjoor.net" + poet.imageUrl}
                         alt={poet.name || ""}
                         className="rounded-full h-20 w-20 object-cover mb-2 mx-auto"

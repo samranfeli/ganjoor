@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { memo } from 'react';
 import Link from 'next/link';
 
@@ -12,7 +11,7 @@ const Header: React.FC = () => {
             <div className='mx-auto max-w-6xl px-4'>
                 <div className='py-2 md:py-6 flex justify-center'>
                     <Link href={'/'}>
-                        <Image
+                        <img
                             src={Logo}
                             alt="گنجور"
                             width={120}

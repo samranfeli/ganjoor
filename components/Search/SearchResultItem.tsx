@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import parse from 'html-react-parser';
 
 import { SearchItemType } from "@/Types";
@@ -38,7 +37,7 @@ const SearchResultItem: React.FC<Props> = props => {
     return (
         <div className="py-4 border-b border-gray-300">
             <div className=" flex items-center mb-2">
-                <Image
+                <img
                     src={"https://api.ganjoor.net" + item.category.poet.imageUrl!}
                     alt={item.category.poet.name!}
                     className="rounded-full h-14 w-14 object-cover ml-3"
